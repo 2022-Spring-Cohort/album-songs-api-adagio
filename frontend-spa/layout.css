@@ -1,0 +1,22 @@
+nav>ul{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-around;
+}
+.mainTitle{
+    display: flex;
+    justify-content: center;
+}
+body{
+    background-color: lightsteelblue;
+}
+.mainContent{
+    display: flex;
+    justify-content: space-around;
+
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+}
