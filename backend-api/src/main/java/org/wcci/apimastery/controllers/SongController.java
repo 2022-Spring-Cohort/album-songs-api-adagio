@@ -4,11 +4,12 @@ package org.wcci.apimastery.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 import org.wcci.apimastery.entities.Song;
 import org.wcci.apimastery.repos.AlbumRepository;
 import org.wcci.apimastery.repos.SongRepository;
 
-@Controller
+@RestController
 public class SongController {
 
     private SongRepository songRepo;
@@ -26,7 +27,7 @@ public class SongController {
     }
 
     @GetMapping ("/songs/{id}")
-    public Song getSong (@PathVariable long id)
-    return songRepo.findById(id).get();
-
+    public Song getSong (@PathVariable long id) {
+        return songRepo.findById(id).get();
+    }
 }

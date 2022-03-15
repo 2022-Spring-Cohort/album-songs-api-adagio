@@ -25,7 +25,7 @@ public class AlbumController {
 
     @GetMapping ("/albums/{id}")
     public Album getAlbums (@PathVariable long id) {
-        return albumRepo.findAllById(id).get();
+        return albumRepo.findById(id).get();
     }
 
     @PostMapping ("/albums/{id}/addSong")
