@@ -1,0 +1,14 @@
+###
+GET http://localhost:8080/songs
+
+
+###
+POST http://localhost:8080/albums/2/addSong
+Content-Type: application/json
+    
+{
+    "title": "Song",
+    "duration": 4.16,
+    "comments": [],
+    "rating": 10.0
+  }

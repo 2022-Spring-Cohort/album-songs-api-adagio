@@ -1,7 +1,7 @@
 package org.wcci.apimastery.repos;
 
 import org.springframework.data.repository.CrudRepository;
-import org.wcci.apimastery.entities.Albums;
+import org.wcci.apimastery.entities.Album;
 
-public interface AlbumRepository extends CrudRepository <Albums, Long>{
+public interface AlbumRepository extends CrudRepository <Album, Long>{
 }
