@@ -6,9 +6,9 @@ import javax.persistence.*;
 @Embeddable
 public class Comment {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+//    @Id
+//    @GeneratedValue
+//    private Long id;
     private String author;
     @Lob
     private String comment;
@@ -24,9 +24,9 @@ public class Comment {
 
     }
 
-    public Long getId() {
-        return id;
-    }
+//    public Long getId() {
+//        return id;
+//    }
 
     public String getAuthor() {
         return author;
