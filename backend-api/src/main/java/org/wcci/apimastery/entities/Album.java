@@ -17,6 +17,7 @@ public class Album {
     @GeneratedValue
     private long id;
     private String title;
+    private String artist;
     private String imgUrl;
 
 
@@ -34,8 +35,9 @@ public class Album {
 //    private List<Double> ratings;
 private double rating;
 
-    public Album(String title, String imgUrl, String recordLabel, double rating, Comment...comments) {
+    public Album(String title, String artist, String imgUrl, String recordLabel, double rating, Comment...comments) {
         this.title = title;
+        this.artist = artist;
         this.imgUrl = imgUrl;
 
         this.recordLabel = recordLabel;
