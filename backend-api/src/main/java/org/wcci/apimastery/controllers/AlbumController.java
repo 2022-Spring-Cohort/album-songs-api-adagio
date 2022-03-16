@@ -36,4 +36,12 @@ public class AlbumController {
         return albums;
     }
 
+    @PostMapping ("/albums/addAlbum")
+    public Album addAlbum (@PathVariable long id, @RequestBody Album album) {
+//        Album albums = albumRepo.findById(id).get();
+        album.setAlbum(albums);
+        albumRepo.save(album);
+        return albums;
+    }
+
 }
