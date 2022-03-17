@@ -22,7 +22,6 @@ public class Album {
 
 
     @OneToMany (mappedBy ="album", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
     private Collection<Song> songs;
 
 

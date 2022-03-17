@@ -1,4 +1,5 @@
 export default function albumView(album) {
+    console.log(album);
     return `
     <main class="main-content">
         <section class="album-display">
@@ -16,11 +17,11 @@ export default function albumView(album) {
             </section>
 
             <div class="NewSongDiv">
-                <input type="text" placeholder="Song Name" class="songNameInput" \>
+                <input type="text" placeholder="Song Name" class="songTitleInput" \>
                 <input type="text" placeholder="Song Duration" class="songDurationInput" \>
                 <input type="text" placeholder="Song Rating" class="songRatingInput" \>
                   
-                <button class="addSongButton">Add Song"</button>
+                <button class="addSongButton">Add Song</button>
             </div>
 
             <a class="back-navigation">back to album library</a>

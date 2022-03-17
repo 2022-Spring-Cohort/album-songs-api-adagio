@@ -19,6 +19,7 @@ public class Song {
     private List<Comment> comments;
     private double rating;
     @ManyToOne
+    @JsonIgnore
     private Album album;
 
 
