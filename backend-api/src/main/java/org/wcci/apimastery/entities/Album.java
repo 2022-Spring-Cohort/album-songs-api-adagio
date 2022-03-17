@@ -21,8 +21,7 @@ public class Album {
     private String imgUrl;
 
 
-    @OneToMany(mappedBy = "album")
-
+    @OneToMany (mappedBy ="album", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Song> songs;
 
 
@@ -84,6 +83,7 @@ private double rating;
     public double getRating() {
         return rating;
     }
+
     public void addComment(Comment comment) {
         comments.add(comment);
     }

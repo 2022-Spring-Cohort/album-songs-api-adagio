@@ -36,4 +36,17 @@ public class AlbumController {
         return albums;
     }
 
+    @PostMapping ("/albums/addAlbum")
+    public Album addAlbum (@RequestBody Album album) {
+//        Album albums = albumRepo.findById(id).get();
+        albumRepo.save(album);
+        return album;
+    }
+
+    @DeleteMapping ("/albums/{id}")
+    public void deleteAlbum (@PathVariable long id){
+        Album album = albumRepo.findById(id).get();
+        albumRepo.delete(album);
+    }
+
 }
