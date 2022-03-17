@@ -57,6 +57,10 @@ private double rating;
         return id;
     }
 
+    public String getArtist() {
+        return artist;
+    }
+
     public String getTitle() {
         return title;
     }
