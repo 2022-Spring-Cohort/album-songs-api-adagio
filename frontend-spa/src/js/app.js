@@ -26,13 +26,13 @@ function makeHomeView() {
 }
 
 function makeAlbumView(albumId) {
-    fetch("http://localhost:8080/albums" + albumId)
+    fetch("http://localhost:8080/albums/" + albumId)
     .then(res => res.json())
     .then(album => {
         console.log(album);
         containerEl.innerHTML = header();
-        containerEl.innerHTML = albumView(album);
-        containerEl.innerHTML = footer();
+        containerEl.innerHTML += albumView(album);
+        containerEl.innerHTML += footer();
 
         const backButton = containerEl.querySelector(".back-navigation");
         backButton.addEventListener("click", () => {
@@ -51,7 +51,7 @@ function makeAlbumView(albumId) {
                 "duration": songDurationInput.value,
                 "rating": songRatingInput.value
             }
-            fetch("http://localhost.8080/albums/${albumId}/addSong", {
+            fetch(`http://localhost:8080/albums/${albumId}/addSong`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

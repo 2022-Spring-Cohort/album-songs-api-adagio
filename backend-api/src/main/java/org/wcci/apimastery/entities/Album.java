@@ -21,8 +21,8 @@ public class Album {
     private String imgUrl;
 
 
-    @OneToMany
-    @JsonIgnore
+    @OneToMany(mappedBy = "album")
+
     private Collection<Song> songs;
 
 

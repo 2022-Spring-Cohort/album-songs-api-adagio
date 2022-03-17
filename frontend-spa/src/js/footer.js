@@ -1,5 +1,6 @@
 export default function footer(){
-    `<footer>
+   return `
+   <footer>
  
     
 </footer>`
