@@ -21,7 +21,7 @@ public class Album {
     private String imgUrl;
 
 
-    @OneToMany
+    @OneToMany (mappedBy ="album", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private Collection<Song> songs;
 
@@ -80,6 +80,7 @@ private double rating;
     public double getRating() {
         return rating;
     }
+
     public void addComment(Comment comment) {
         comments.add(comment);
     }
