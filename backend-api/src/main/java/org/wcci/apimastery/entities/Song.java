@@ -64,6 +64,8 @@ public class Song {
     public Album getAlbum() {
         return album;
     }
+
+    public void updateSongTitle(String newSongTitle) { title = newSongTitle;}
 }
 
 

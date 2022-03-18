@@ -43,10 +43,19 @@ public class AlbumController {
         return album;
     }
 
-    @DeleteMapping ("/albums/{id}")
-    public void deleteAlbum (@PathVariable long id){
+    @PatchMapping ("/albums/{id}")
+    public Iterable<Album> changeAlbumTitle (@PathVariable long id, @RequestBody String title)
+    {
         Album album = albumRepo.findById(id).get();
-        albumRepo.delete(album);
+        album.updateAlbumTitle(title);
+        albumRepo.save(album);
+        return albumRepo.findAll();
+    }
+
+    @DeleteMapping ("/albums/{id}")
+    public Iterable<Album> deleteAlbum (@PathVariable long id){
+        albumRepo.delete(albumRepo.findById(id).get());
+        return albumRepo.findAll();
     }
 
 }
