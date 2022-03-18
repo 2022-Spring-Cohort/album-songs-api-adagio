@@ -10,7 +10,7 @@ ${albums.map(album => {
     <img class="album-img" src=${album.imgUrl}>
      <input type="text" class="update-album-title" placeholder="New Album Title" />
      <button class="update-button">Update Album Title</button>
-    <button class="delete-button">Delete Song</button>
+    <button class="delete-button">Delete Album</button>
 </div>`
 }).join("")
 }    
