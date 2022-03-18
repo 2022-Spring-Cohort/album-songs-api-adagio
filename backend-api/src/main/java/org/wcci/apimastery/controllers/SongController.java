@@ -2,10 +2,7 @@ package org.wcci.apimastery.controllers;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.wcci.apimastery.entities.Album;
 import org.wcci.apimastery.entities.Song;
 import org.wcci.apimastery.repos.AlbumRepository;
@@ -39,5 +36,15 @@ public class SongController {
         Song song = songRepo.findById(id).get();
         songRepo.delete(song);
     }
+
+    @PatchMapping ("/albums/songs/{id}")
+    public Iterable<Song> updateSongTitle (@PathVariable long id, @RequestBody String title)
+    {
+        Song song = songRepo.findById(id).get();
+        song.updateSongTitle(title);
+        songRepo.save(song);
+        return songRepo.findAll();
+    }
+
 
 }

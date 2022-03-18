@@ -88,5 +88,6 @@ private double rating;
         comments.add(comment);
     }
 
+    public void updateAlbumTitle(String newAlbumTitle) { title = newAlbumTitle;}
 
 }
