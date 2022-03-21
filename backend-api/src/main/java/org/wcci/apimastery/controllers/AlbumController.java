@@ -7,6 +7,8 @@ import org.wcci.apimastery.entities.Song;
 import org.wcci.apimastery.repos.AlbumRepository;
 import org.wcci.apimastery.repos.SongRepository;
 
+import java.util.Optional;
+
 @RestController
 public class AlbumController {
 
@@ -31,8 +33,17 @@ public class AlbumController {
     @PostMapping ("/albums/{id}/addSong")
     public Album addSongToAlbum (@PathVariable long id, @RequestBody Song song) {
         Album albums = albumRepo.findById(id).get();
-        song.setAlbum(albums);
-        songRepo.save(song);
+        Optional<Song> optionalSong = songRepo.findBySongIgnoreCase(song.getTitle());
+        if(optionalSong.isPresent()){
+            if(!optionalSong.get().getAlbum().containsSong(song)) {
+                optionalSong.get().setAlbum(albums);
+                songRepo.save(optionalSong.get());
+            }
+        }
+        else {
+            song.setAlbum(albums);
+            songRepo.save(song);
+        }
         return albums;
     }
 
