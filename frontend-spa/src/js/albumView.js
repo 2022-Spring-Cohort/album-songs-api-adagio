@@ -10,7 +10,7 @@ export default function albumView(album) {
             <section class="album-song-list">
                 ${
                     album.songs.map(song => {
-                    return `<h3 class="song-list">${song.title}</h3>`;
+                    return `<h3 class="song-list" id ="song${song.id}">${song.title}</h3>`;
                 }).join("")
                 }
                 
