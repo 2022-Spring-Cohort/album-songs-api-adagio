@@ -73,6 +73,10 @@ function makeAlbumView(album) {
     makeHomeView();
   });
 
+  album.songs.forEach(song => {
+    makeSongView(song);
+  })
+
   const songTitleInput = containerEl.querySelector(".songTitleInput");
   const songDurationInput = containerEl.querySelector(".songDurationInput");
   const songRatingInput = containerEl.querySelector(".songRatingInput");
@@ -99,49 +103,39 @@ function makeAlbumView(album) {
 }
 
 function makeSongView(song) {
-  // fetch("http://localhost:8080/albums/" + albumId)
-  //     .then((res) => res.json())
-  //     .then((album) => {
-  console.log(song);
-  containerEl.innerHTML = header();
-  containerEl.innerHTML += songView(song);
-  containerEl.innerHTML += footer();
-
-  const backButton = containerEl.querySelector(".back-navigation");
-  backButton.addEventListener("click", () => {
-    makeHomeView();
-  });
-
-  const songTitleInput = containerEl.querySelector(".songTitleInput");
-  const songDurationInput = containerEl.querySelector(".songDurationInput");
-  const songRatingInput = containerEl.querySelector(".songRatingInput");
-
-  const addSongBtn = containerEl.querySelector(".addSongButton");
-  addSongBtn.addEventListener("click", () => {
-    const updateSongButton = song.querySelector(".update-song-title");
-    updateSongButton.addEventListener("click", () => {
-      const updateSongInput = song.querySelector(".update-song-title");
-      fetch("http://localhost:8080/albums/songs/" + songIdEl.value, {
-        method: "PATCH",
-        body: updateSongInput.value,
-      })
-        .then((res) => res.json())
-        .then((newSongs) => {
-          makeSongView(newSongs);
-        });
-
-      const deleteSongButton = song.querySelector(".delete-song-button");
-      deleteSongButton.addEventListener("click", () => {
-        fetch("http://localhost:8080/albums/songs/" + songIdEl.value, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((newSongs) => {
-            makeHomeViewFromJSON(newSongs);
-          });
-      });
+//   // fetch("http://localhost:8080/albums/" + albumId)
+//   //     .then((res) => res.json())
+//   //     .then((album) => {
+ 
+  const viewSong = document.querySelector("#song"+ song.id);
+  viewSong.addEventListener("click", () => {
+    containerEl.innerHTML = header();
+    containerEl.innerHTML += songView(song);
+    containerEl.innerHTML += footer();
+  
+    const backButton = containerEl.querySelector(".back-navigation");
+    backButton.addEventListener("click", () => {
+      makeHomeView();
     });
-  });
+  
+    const songTitleInput = containerEl.querySelector(".songTitleInput");
+    const songDurationInput = containerEl.querySelector(".songDurationInput");
+    const songRatingInput = containerEl.querySelector(".songRatingInput");
+
+
+  
+        const deleteSongButton = document.querySelector(".delete-song");
+        deleteSongButton.addEventListener("click", () => {
+
+          fetch("http://localhost:8080/songs/" + song.id, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((album) => {
+              makeAlbumView(album);
+            });
+        });
+      });
 }
 
 makeHomeView();

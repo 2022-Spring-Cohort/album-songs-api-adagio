@@ -32,9 +32,10 @@ public class SongController {
 
 
     @DeleteMapping("/songs/{id}")
-    public void deleteSong(@PathVariable long id){
+    public Album deleteSong(@PathVariable long id){
         Song song = songRepo.findById(id).get();
         songRepo.delete(song);
+        return albumRepo.findById(song.getAlbum().getId()).get();
     }
 
     @PatchMapping ("/albums/songs/{id}")
