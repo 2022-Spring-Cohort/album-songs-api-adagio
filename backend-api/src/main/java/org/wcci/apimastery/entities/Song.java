@@ -17,19 +17,17 @@ public class Song {
     private double duration;
     @ElementCollection
     private List<Comment> comments;
-    private double rating;
     @ManyToOne
     @JsonIgnore
     private Album album;
 
 
 
-    public Song(String title, Album album, double duration, double rating, Comment...comments) {
+    public Song(String title, Album album, double duration, Comment...comments) {
         this.title = title;
         this.album = album;
         this.duration = duration;
         this.comments = Arrays.asList(comments);
-        this.rating = rating;
     }
     public Song() {
     }
@@ -49,9 +47,6 @@ public class Song {
         return comments;
     }
 
-    public double getRating() {
-        return rating;
-    }
 
     public void addSongComment(Comment comment) {
         comments.add(comment);

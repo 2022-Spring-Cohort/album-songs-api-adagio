@@ -77,5 +77,4 @@ public class AlbumController {
         albumRepo.save(album);
         return album;
     }
-
 }
