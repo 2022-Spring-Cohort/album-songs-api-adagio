@@ -90,4 +90,7 @@ private double rating;
 
     public void updateAlbumTitle(String newAlbumTitle) { title = newAlbumTitle;}
 
+    public boolean containsSong(Song song) {
+        return songs.contains(song);
+    }
 }

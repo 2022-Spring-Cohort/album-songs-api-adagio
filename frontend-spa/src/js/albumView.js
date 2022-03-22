@@ -24,7 +24,12 @@ export default function albumView(album) {
                 <button class="addSongButton">Add Song</button>
             </div>
 
-            <a class="back-navigation">back to album library</a>
+            <div class="addAlbumComment">
+            <input type="text" placeholder="Album Comments" class="albumCommentInput" \>
+            <button class="addAlbumCommentBtn">Add Comment</button>
+            </div>
+
+            <a class="back-navigation">Back to Album Library</a>
         </section>
     </main>`;
 }
