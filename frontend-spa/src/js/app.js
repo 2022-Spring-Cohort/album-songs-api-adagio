@@ -74,7 +74,7 @@ function makeAlbumView(album) {
   });
 
   album.songs.forEach(song => {
-    makeSongView(song);
+    bindSongView(song);
   })
 
   const songTitleInput = containerEl.querySelector(".songTitleInput");
@@ -126,40 +126,68 @@ function makeAlbumView(album) {
 
 }
 
-function makeSongView(song) {
+function bindSongView(song) {
 //   // fetch("http://localhost:8080/albums/" + albumId)
 //   //     .then((res) => res.json())
 //   //     .then((album) => {
- 
+ console.log(song);
   const viewSong = document.querySelector("#song"+ song.id);
   viewSong.addEventListener("click", () => {
-    containerEl.innerHTML = header();
-    containerEl.innerHTML += songView(song);
-    containerEl.innerHTML += footer();
-  
-    const backButton = containerEl.querySelector(".back-navigation");
-    backButton.addEventListener("click", () => {
-      makeHomeView();
+    makeSongView(song);
     });
-  
-    const songTitleInput = containerEl.querySelector(".songTitleInput");
-    const songDurationInput = containerEl.querySelector(".songDurationInput");
-    const songRatingInput = containerEl.querySelector(".songRatingInput");
 
 
-  
-        const deleteSongButton = document.querySelector(".delete-song");
-        deleteSongButton.addEventListener("click", () => {
+}
 
-          fetch("http://localhost:8080/songs/" + song.id, {
-            method: "DELETE",
-          })
-            .then((res) => res.json())
-            .then((album) => {
-              makeAlbumView(album);
-            });
-        });
+function makeSongView(song){
+  containerEl.innerHTML = header();
+  containerEl.innerHTML += songView(song);
+  containerEl.innerHTML += footer();
+
+  const backButton = containerEl.querySelector(".back-navigation");
+  backButton.addEventListener("click", () => {
+    makeHomeView();
+  });
+
+  const songTitleInput = containerEl.querySelector(".songTitleInput");
+  const songDurationInput = containerEl.querySelector(".songDurationInput");
+  const songRatingInput = containerEl.querySelector(".songRatingInput");
+  const songDiv = containerEl.querySelector(".main-content");
+
+
+      const deleteSongButton = document.querySelector(".delete-song");
+      deleteSongButton.addEventListener("click", () => {
+
+        fetch("http://localhost:8080/songs/" + song.id, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((album) => {
+            makeAlbumView(album);
+          });
       });
+
+    const songCommentInput = songDiv.querySelector(".songAuthorInput");
+    const songAuthorInput = songDiv.querySelector(".songCommentInput");
+    const addSongCommentBtn = songDiv.querySelector(".addSongComment");
+    addSongCommentBtn.addEventListener("click", () => {
+      const newCommentJson = {
+        comment: songCommentInput.value,
+        author: songAuthorInput.value
+      };
+      fetch(`http://localhost:8080/albums/songs/${song.id}/addComment`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newCommentJson),
+      })
+        .then((res) => res.json())
+        .then((song) => {
+          console.log(song);
+          makeSongView(song);
+        });
+    });
 }
 
 makeHomeView();

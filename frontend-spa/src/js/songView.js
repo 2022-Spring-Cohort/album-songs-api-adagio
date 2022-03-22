@@ -12,14 +12,25 @@ export default function songView(song) {
             <input type="text" placeholder="Song Rating" class="songRatingInput" \>
             <button class="addRatingBtn">Add Rating</button>
             </div>
-            <div class="addSongComment">
+            <div class="NewSongCommentDiv">
             <input type="text" placeholder="Song Comments" class="songCommentInput" \>
-            <button class="addSongCommentBtn">Add Comment</button>
+            <input type="text" placeholder="Song Comment Author" class="songAuthorInput" \>
+            <button class="addSongComment">Add Comment</button>
             </div>
             <div class="NewSongDiv">
           <button class="delete-song">Delete song</button>
             </div>
             <a class="back-navigation">Back to Album Library</a>
         </section>
+        
+        <section class ="song-comments">
+        ${
+            song.comments.map(comment => {
+                return `<h3 class="display-comments-list">${comment.comment}</h3>`;
+            }).join("")
+        }
+        
+        </section>
+
     </main>`;
 }
