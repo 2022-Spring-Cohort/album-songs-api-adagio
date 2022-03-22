@@ -26,7 +26,7 @@ export default function albumView(album) {
 
             <div class="NewCommentDiv">
             <input type="text" placeholder="Album Comments" class="albumCommentInput" \>
-            <input type="text" placeholder="Comment Author" class="albumAuthorInput" \>
+            <input type="text" placeholder="Album Comment Author" class="albumAuthorInput" \>
             <button class="addAlbumComment">Add Comment</button>
 
             </div>
