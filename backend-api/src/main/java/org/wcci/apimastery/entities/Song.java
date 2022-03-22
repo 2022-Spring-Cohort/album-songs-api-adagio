@@ -53,7 +53,7 @@ public class Song {
         return rating;
     }
 
-    public void addComment(Comment comment) {
+    public void addSongComment(Comment comment) {
         comments.add(comment);
     }
 

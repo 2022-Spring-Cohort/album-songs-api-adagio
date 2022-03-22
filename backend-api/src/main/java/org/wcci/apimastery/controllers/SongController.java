@@ -7,6 +7,7 @@ import org.wcci.apimastery.entities.Album;
 import org.wcci.apimastery.entities.Song;
 import org.wcci.apimastery.repos.AlbumRepository;
 import org.wcci.apimastery.repos.SongRepository;
+import org.wcci.apimastery.resources.Comment;
 
 @RestController
 public class SongController {
@@ -45,6 +46,15 @@ public class SongController {
         song.updateSongTitle(title);
         songRepo.save(song);
         return songRepo.findAll();
+    }
+
+
+    @PostMapping("/albums/songs/{id}/addComment")
+    public Song addComment(@PathVariable long id, @RequestBody Comment comment){
+        Song song = songRepo.findById(id).get();
+        song.addSongComment(comment);
+        songRepo.save(song);
+        return song;
     }
 
 
