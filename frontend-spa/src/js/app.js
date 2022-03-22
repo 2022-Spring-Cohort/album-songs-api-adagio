@@ -100,6 +100,30 @@ function makeAlbumView(album) {
         makeAlbumView(album);
       });
   });
+
+  const albumCommentInput = containerEl.querySelector(".albumAuthorInput");
+  const albumAuthorInput = containerEl.querySelector(".albumCommentInput");
+  const addCommentBtn = containerEl.querySelector(".addAlbumComment");
+  addCommentBtn.addEventListener("click", () => {
+    const newCommentJson = {
+      comment: albumCommentInput.value,
+      author: albumAuthorInput.value
+    };
+    fetch(`http://localhost:8080/albums/${album.id}/addComment`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newCommentJson),
+    })
+      .then((res) => res.json())
+      .then((album) => {
+        console.log(album);
+        makeAlbumView(album);
+      });
+  });
+
+
 }
 
 function makeSongView(song) {

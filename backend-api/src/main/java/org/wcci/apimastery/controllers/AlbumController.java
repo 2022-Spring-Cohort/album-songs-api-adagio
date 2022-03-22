@@ -6,6 +6,7 @@ import org.wcci.apimastery.entities.Album;
 import org.wcci.apimastery.entities.Song;
 import org.wcci.apimastery.repos.AlbumRepository;
 import org.wcci.apimastery.repos.SongRepository;
+import org.wcci.apimastery.resources.Comment;
 
 import java.util.Optional;
 
@@ -67,6 +68,14 @@ public class AlbumController {
     public Iterable<Album> deleteAlbum (@PathVariable long id){
         albumRepo.delete(albumRepo.findById(id).get());
         return albumRepo.findAll();
+    }
+
+    @PostMapping("/albums/{id}/addComment")
+        public Album addComment(@PathVariable long id, @RequestBody Comment comment){
+        Album album = albumRepo.findById(id).get();
+        album.addAlbumComment(comment);
+        albumRepo.save(album);
+        return album;
     }
 
 }
