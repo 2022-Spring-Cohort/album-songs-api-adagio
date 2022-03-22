@@ -84,7 +84,7 @@ private double rating;
         return rating;
     }
 
-    public void addComment(Comment comment) {
+    public void addAlbumComment(Comment comment) {
         comments.add(comment);
     }
 

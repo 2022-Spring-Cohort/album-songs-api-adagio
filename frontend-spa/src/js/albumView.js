@@ -24,10 +24,21 @@ export default function albumView(album) {
                 <button class="addSongButton">Add Song</button>
             </div>
 
-            <div class="addAlbumComment">
+            <div class="NewCommentDiv">
             <input type="text" placeholder="Album Comments" class="albumCommentInput" \>
-            <button class="addAlbumCommentBtn">Add Comment</button>
+            <input type="text" placeholder="Comment Author" class="albumAuthorInput" \>
+            <button class="addAlbumComment">Add Comment</button>
+
             </div>
+
+            <section class ="album-comments">
+            ${
+                album.comments.map(comment => {
+                    return `<h3 class="display-comments-list">${comment.comment}</h3>`;
+                }).join("")
+            }
+            
+            </section>
 
             <a class="back-navigation">Back to Album Library</a>
         </section>
