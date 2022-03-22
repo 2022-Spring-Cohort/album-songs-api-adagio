@@ -19,12 +19,11 @@ public class Album {
     private String title;
     private String artist;
     private String imgUrl;
+    private double averageAlbumRating;
+    private int ratingCount;
 
-
-    @OneToMany (mappedBy ="album", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Song> songs;
-
-
 
 
     private String recordLabel;
@@ -32,17 +31,18 @@ public class Album {
     private List<Comment> comments;
 //    @ElementCollection
 //    private List<Double> ratings;
-private double rating;
 
-    public Album(String title, String artist, String imgUrl, String recordLabel, double rating, Comment...comments) {
+
+    public Album(String title, String artist, String imgUrl, String recordLabel, Comment... comments) {
         this.title = title;
         this.artist = artist;
         this.imgUrl = imgUrl;
+        this.averageAlbumRating = 0;
 
         this.recordLabel = recordLabel;
         this.comments = Arrays.asList(comments);
-        this.rating = rating;
     }
+
     public Album() {
 
     }
@@ -80,17 +80,29 @@ private double rating;
         return comments;
     }
 
-    public double getRating() {
-        return rating;
-    }
 
     public void addAlbumComment(Comment comment) {
         comments.add(comment);
+        averageAlbumRating = 0;
+        for (Comment tempcomment : comments){
+            averageAlbumRating += tempcomment.getRating();
+        }
+        averageAlbumRating /= comments.size();
     }
 
-    public void updateAlbumTitle(String newAlbumTitle) { title = newAlbumTitle;}
+    public void updateAlbumTitle(String newAlbumTitle) {
+        title = newAlbumTitle;
+    }
 
     public boolean containsSong(Song song) {
         return songs.contains(song);
+    }
+
+    public double getAverageAlbumRating() {
+        return averageAlbumRating;
+    }
+
+    public int getRatingCount() {
+        return ratingCount;
     }
 }

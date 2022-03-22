@@ -12,12 +12,14 @@ public class Comment {
     private String author;
     @Lob
     private String comment;
+    private double rating;
 
 
 
-    public Comment(String author, String comment) {
+    public Comment(String author, String comment, double rating) {
         this.author = author;
         this.comment = comment;
+        this.rating = 5;
     }
 
     public Comment() {
@@ -34,6 +36,10 @@ public class Comment {
 
     public String getComment() {
         return comment;
+    }
+
+    public double getRating() {
+        return rating;
     }
 }
 

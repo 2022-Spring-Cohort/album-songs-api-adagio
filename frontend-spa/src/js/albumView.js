@@ -6,6 +6,7 @@ export default function albumView(album) {
             <header class="album-header">
                 <h2 class="album-header__artist">${album.artist}</h2>
                 <h3 class="album-header__title">${album.title}</h3>
+                <h3 class="album-header__rating">${album.averageAlbumRating.toFixed(3)}</h3>
             </header>
             <section class="album-song-list">
                 ${
@@ -27,6 +28,7 @@ export default function albumView(album) {
             <div class="NewCommentDiv">
             <input type="text" placeholder="Album Comments" class="albumCommentInput" \>
             <input type="text" placeholder="Album Comment Author" class="albumAuthorInput" \>
+            <input type="text" placeholder="Album Rating" class="albumRatingInput" \>
             <button class="addAlbumComment">Add Comment</button>
 
             </div>
@@ -34,7 +36,7 @@ export default function albumView(album) {
             <section class ="album-comments">
             ${
                 album.comments.map(comment => {
-                    return `<h3 class="display-comments-list">${comment.comment}</h3>`;
+                    return `<h3 class="display-comments-list">${comment.comment}</h3><h3 class="display-album-rating">${comment.rating.toFixed(3)}</h3>`;
                 }).join("")
             }
             
