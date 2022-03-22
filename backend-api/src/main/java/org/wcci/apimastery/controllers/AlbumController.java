@@ -33,7 +33,7 @@ public class AlbumController {
     @PostMapping ("/albums/{id}/addSong")
     public Album addSongToAlbum (@PathVariable long id, @RequestBody Song song) {
         Album albums = albumRepo.findById(id).get();
-        Optional<Song> optionalSong = songRepo.findBySongIgnoreCase(song.getTitle());
+        Optional<Song> optionalSong = songRepo.findByTitleIgnoreCase(song.getTitle());
         if(optionalSong.isPresent()){
             if(!optionalSong.get().getAlbum().containsSong(song)) {
                 optionalSong.get().setAlbum(albums);
