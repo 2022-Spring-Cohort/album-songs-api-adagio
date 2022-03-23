@@ -15,6 +15,8 @@ public class Song {
     private long id;
     private String title;
     private double duration;
+    private double averageSongRating;
+
     @ElementCollection
     private List<Comment> comments;
     @ManyToOne
@@ -28,6 +30,7 @@ public class Song {
         this.album = album;
         this.duration = duration;
         this.comments = Arrays.asList(comments);
+        this.averageSongRating = 0;
     }
     public Song() {
     }
@@ -50,6 +53,11 @@ public class Song {
 
     public void addSongComment(Comment comment) {
         comments.add(comment);
+        averageSongRating = 0;
+        for (Comment tempcomment : comments){
+            averageSongRating += tempcomment.getRating();
+        }
+        averageSongRating /= comments.size();
     }
 
     public void setAlbum(Album album) {
@@ -62,6 +70,9 @@ public class Song {
 
     public void updateSongTitle(String newSongTitle) { title = newSongTitle;}
 
+    public double getAverageSongRating() {
+        return averageSongRating;
+    }
 }
 
 

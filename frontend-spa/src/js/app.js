@@ -101,8 +101,8 @@ function makeAlbumView(album) {
       });
   });
 
-  const albumCommentInput = containerEl.querySelector(".albumAuthorInput");
-  const albumAuthorInput = containerEl.querySelector(".albumCommentInput");
+  const albumCommentInput = containerEl.querySelector(".albumCommentInput");
+  const albumAuthorInput = containerEl.querySelector(".albumAuthorInput");
   const albumRatingInput = containerEl.querySelector(".albumRatingInput");
   const addCommentBtn = containerEl.querySelector(".addAlbumComment");
   addCommentBtn.addEventListener("click", () => {
@@ -169,6 +169,20 @@ function makeSongView(song){
           });
       });
 
+  
+      const updateSongButton = songDiv.querySelector(".update-song-button");
+      updateSongButton.addEventListener("click", () => {
+        const updateInput = songDiv.querySelector(".update-song-title");
+        fetch("http://localhost:8080/albums/songs/" + song.id, {
+          method: "PATCH",
+          body: updateInput.value,
+        })
+          .then((res) => res.json())
+          .then((newSongs) => {
+            makeHomeViewFromJSON(newSongs);
+          });
+      });
+      
     const songCommentInput = songDiv.querySelector(".songCommentInput");
     const songAuthorInput = songDiv.querySelector(".songAuthorInput");
     const songCommentRatingInput = songDiv.querySelector(".songCommentRatingInput");

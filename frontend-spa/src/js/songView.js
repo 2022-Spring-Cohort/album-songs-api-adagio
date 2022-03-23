@@ -6,9 +6,12 @@ export default function songView(song) {
             <header class="song-header">
                 <h3 class="song-title">${song.title}</h3>
                 <h3 class="song-duration">${song.duration}</h3>
-                <h3 class="song-rating">${song.rating}</h3>    
+                <h3 class="song-rating">${song.averageSongRating.toFixed(3)}</h3>    
             </header>
           
+            <input type="text" class="update-song-title" placeholder="New Song Title" />
+            <button class="update-song-button">Update Song Title</button>
+
             <div class="NewSongCommentDiv">
             <input type="text" placeholder="Song Comments" class="songCommentInput" \>
             <input type="text" placeholder="Song Comment Author" class="songAuthorInput" \>
@@ -24,7 +27,7 @@ export default function songView(song) {
         <section class ="song-comments">
         ${ 
             song.comments.map(comment => { 
-                return `<h3 class="display-comments-list">${comment.comment}</h3> <h3 class="display-comment-rating">${comment.rating}</h3>`;
+                return `<h3 class="display-comments-list">${comment.comment}</h3> <h3 class="display-comment-rating">${comment.rating.toFixed(3)}</h3>`;
             }).join("")
         }
         
