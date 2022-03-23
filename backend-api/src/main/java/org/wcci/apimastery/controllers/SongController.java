@@ -40,12 +40,12 @@ public class SongController {
     }
 
     @PatchMapping ("/albums/songs/{id}")
-    public Iterable<Song> updateSongTitle (@PathVariable long id, @RequestBody String title)
+    public Iterable<Album> updateSongTitle (@PathVariable long id, @RequestBody String title)
     {
         Song song = songRepo.findById(id).get();
         song.updateSongTitle(title);
         songRepo.save(song);
-        return songRepo.findAll();
+        return albumRepo.findAll();
     }
 
 

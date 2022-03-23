@@ -4,6 +4,7 @@ import footer from "./footer.js";
 import albumView from "./albumView.js";
 import songView from "./songView.js";
 
+
 const containerEl = document.querySelector(".container");
 
 function makeHomeView() {
@@ -74,7 +75,7 @@ function makeAlbumView(album) {
   });
 
   album.songs.forEach(song => {
-    bindSongView(song);
+    bindSongView(song, album.id);
   })
 
   const songTitleInput = containerEl.querySelector(".songTitleInput");
@@ -87,6 +88,7 @@ function makeAlbumView(album) {
       title: songTitleInput.value,
       duration: songDurationInput.value,
       rating: songRatingInput.value,
+      comments: []
     };
     fetch(`http://localhost:8080/albums/${album.id}/addSong`, {
       method: "POST",
@@ -128,20 +130,21 @@ function makeAlbumView(album) {
 
 }
 
-function bindSongView(song) {
+function bindSongView(song, albumId) {
 //   // fetch("http://localhost:8080/albums/" + albumId)
 //   //     .then((res) => res.json())
 //   //     .then((album) => {
  console.log(song);
   const viewSong = document.querySelector("#song"+ song.id);
   viewSong.addEventListener("click", () => {
-    makeSongView(song);
+    makeSongView(song, albumId);
     });
 
 
 }
 
-function makeSongView(song){
+function makeSongView(song, albumId){
+  console.log(song);
   containerEl.innerHTML = header();
   containerEl.innerHTML += songView(song);
   containerEl.innerHTML += footer();
@@ -178,8 +181,13 @@ function makeSongView(song){
           body: updateInput.value,
         })
           .then((res) => res.json())
-          .then((newSongs) => {
-            makeHomeViewFromJSON(newSongs);
+          .then((albums) => {
+            console.log(albums)
+          albums.forEach(album => {
+            if( album.id == albumId) {
+              makeAlbumView(album)
+            }
+          })
           });
       });
       
@@ -206,6 +214,18 @@ function makeSongView(song){
           makeSongView(song);
         });
     });
-}
+
+
+
+
+
+  }
+
+
+
+
+
+
+
 
 makeHomeView();
