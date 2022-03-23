@@ -16,7 +16,11 @@ export default function albumView(album) {
                 }
                 
             </section>
-
+            <div class="update-album-title-section">
+            <input type="text" class="update-album-title" placeholder="New Album Title" />
+            <button class="update-button">Update Album Title</button>
+           <button class="delete-button">Delete Album</button>
+           </div>
             <div class="NewSongDiv">
                 <input type="text" placeholder="Song Name" class="songTitleInput" \>
                 <input type="text" placeholder="Song Duration" class="songDurationInput" \>
