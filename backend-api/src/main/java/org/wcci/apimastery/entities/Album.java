@@ -20,8 +20,6 @@ public class Album {
     private String artist;
     private String imgUrl;
     private double averageAlbumRating;
-    private int ratingCount;
-
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Song> songs;
 
@@ -102,7 +100,4 @@ public class Album {
         return averageAlbumRating;
     }
 
-    public int getRatingCount() {
-        return ratingCount;
-    }
 }
