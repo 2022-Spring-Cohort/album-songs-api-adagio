@@ -1,7 +1,9 @@
 export default function header(){
 return `
 <header>
-   <h1 class="mainTitle">Adagio Music</h1> 
+    <div class="banner">
+   <img src="src/img/banner.png">
+   </div>
    <nav> 
     <ul>
         <li>Albums</li>
