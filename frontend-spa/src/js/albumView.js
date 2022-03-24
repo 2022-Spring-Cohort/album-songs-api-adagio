@@ -26,18 +26,20 @@ export default function albumView(album) {
            <br>
             <div class="NewSongDiv">
                 <input type="text" placeholder="Song Name" class="songTitleInput" \>
-                <input type="text" placeholder="Song Duration" class="songDurationInput" \>
-                <input type="text" placeholder="Song Rating" class="songRatingInput" \>
-                  
+                <input type="number" min="0" max="59" placeholder="Minutes" class="songDurationInputMinutes" \>
+                 <input type="number" min="0" max="59" placeholder="Seconds" class="songDurationInputSeconds" \>
+        
+
                 <button class="addSongButton">Add Song</button>
             </div>
                 <br>
             <div class="NewCommentDiv">
-            <input type="text" placeholder="Album Comments" class="albumCommentInput" \>
+            <form action="#" return false">
+            <input type="text" required placeholder="Album Comments" class="albumCommentInput" \>
             <input type="text" placeholder="Album Comment Author" class="albumAuthorInput" \>
-            <input type="text" placeholder="Album Rating" class="albumRatingInput" \>
-            <button class="addAlbumComment">Add Comment</button>
-
+            <input type="number" min="0" max="10" placeholder="Album Rating" class="albumRatingInput" \>
+            <button type="submit" class="addAlbumComment">Add Comment </button>
+            </form>
             </div>
 
             <section class ="album-comments">

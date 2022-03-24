@@ -86,3 +86,6 @@ footer{
 .song-rating{
     text-align: center;
 }
+.albumRatingInput{
+    width: 100px;
+}
