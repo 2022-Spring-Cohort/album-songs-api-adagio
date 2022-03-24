@@ -97,6 +97,10 @@ function makeAlbumView(album) {
   console.log(containerEl);
   const updateButton = containerEl.querySelector(".update-button");
   updateButton.addEventListener("click", () => {
+    let x = update-button.value;
+    if (x == "") {
+      return false;
+    }
     const updateInput = containerEl.querySelector(".update-album-title");
     fetch("http://localhost:8080/albums/" + album.id, {
       method: "PATCH",
@@ -126,6 +130,12 @@ function makeAlbumView(album) {
 
   const addSongBtn = containerEl.querySelector(".addSongButton");
   addSongBtn.addEventListener("click", () => {
+    let x = songTitleInput.value;
+    let y = songDurationInputMinutes.value;
+    let z = songDurationInputSeconds.value;
+  if (x == "" || y == "" || z == "") {
+    return false;
+  }
     const newSongJson = {
       title: songTitleInput.value,
       duration: eval(songDurationInputMinutes.value*60) + eval(songDurationInputSeconds.value),
@@ -149,10 +159,10 @@ function makeAlbumView(album) {
   const albumRatingInput = containerEl.querySelector(".albumRatingInput");
   const addCommentBtn = containerEl.querySelector(".addAlbumComment");
   addCommentBtn.addEventListener("click", () => {
-    // event.preventDefault();
     let x = albumCommentInput.value;
-  if (x == "") {
-    // alert("Comment must be filled out");
+    let y = albumAuthorInput.value;
+    let z = albumRatingInput.value;
+  if (x == "" || y == "" || z == "") {
     return false;
   }
     const newCommentJson = {
@@ -222,6 +232,10 @@ function makeSongView(song, albumId){
   
       const updateSongButton = songDiv.querySelector(".update-song-button");
       updateSongButton.addEventListener("click", () => {
+        let x = update-song-button.value;
+        if (x == "") {
+          return false;
+        }
         const updateInput = songDiv.querySelector(".update-song-title");
         fetch("http://localhost:8080/albums/songs/" + song.id, {
           method: "PATCH",
@@ -243,6 +257,13 @@ function makeSongView(song, albumId){
     const songCommentRatingInput = songDiv.querySelector(".songCommentRatingInput");
     const addSongCommentBtn = songDiv.querySelector(".addSongComment");
     addSongCommentBtn.addEventListener("click", () => {
+      let x = songCommentInput.value;
+      let y = songAuthorInput.value;
+      let z = songCommentRatingInput.value;
+      
+      if (x == "" || y == "" || z == "") {
+        return false;
+      }
       const newCommentJson = {
         comment: songCommentInput.value,
         author: songAuthorInput.value,
