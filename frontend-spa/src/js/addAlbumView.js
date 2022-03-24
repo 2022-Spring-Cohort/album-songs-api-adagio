@@ -10,7 +10,7 @@ export default function addAlbumView(album) {
 <input type="text" class="new-album-artist" placeholder="Artist Name" />
 <input type="text" class="new-album-url" placeholder="Link to Album Artwork" />  
 <button class="add-album-button">Add Album</button>
-<img class="album-img" src="src/img/add album.png">
+
 </div> 
 <a class="back-navigation">Back to Album Library</a>
 </section>

@@ -1,3 +1,29 @@
 .banner{
     background-color: #ed8023;
+    display: flex;
+    justify-content: center;
+}
+.topLine{
+    background-color: #40403f;
+    height: .25em;
+    border: 0px;
+}
+.bottomLine{
+    background-color: #40403f;
+    height: .25em; 
+    border: 0px;
+
+}
+footer{
+    background-color: #ed8023;
+    height: 3em;
+    display: flex;
+    align-items: center;
+ 
+
+}
+.footer-line{
+    background-color: #40403f;
+    height: .25em;
+    border: 0px;
 }
