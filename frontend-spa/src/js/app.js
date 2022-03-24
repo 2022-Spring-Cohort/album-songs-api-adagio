@@ -90,6 +90,11 @@ function makeAlbumView(album) {
     makeHomeView();
   });
 
+  const homeButton = document.querySelector(".nav-bar-home-btn");
+  homeButton.addEventListener("click", () => {
+    location.reload();
+  })
+
   album.songs.forEach(song => {
     bindSongView(song, album.id);
   })
@@ -126,6 +131,7 @@ function makeAlbumView(album) {
   const songTitleInput = containerEl.querySelector(".songTitleInput");
   const songDurationInputMinutes = containerEl.querySelector(".songDurationInputMinutes");
   const songDurationInputSeconds = containerEl.querySelector(".songDurationInputSeconds");
+  const songVideoLink = containerEl.querySelector(".songVidInput");
 
 
   const addSongBtn = containerEl.querySelector(".addSongButton");
@@ -133,13 +139,15 @@ function makeAlbumView(album) {
     let x = songTitleInput.value;
     let y = songDurationInputMinutes.value;
     let z = songDurationInputSeconds.value;
-  if (x == "" || y == "" || z == "") {
+    let v = songVideoLink.value;
+  if (x == "" || y == "" || z == "" || v == "") {
     return false;
   }
     const newSongJson = {
       title: songTitleInput.value,
       duration: eval(songDurationInputMinutes.value*60) + eval(songDurationInputSeconds.value),
-      comments: []
+      comments: [],
+      songUrl: songVideoLink.value
     };
     fetch(`http://localhost:8080/albums/${album.id}/addSong`, {
       method: "POST",
@@ -211,6 +219,11 @@ function makeSongView(song, albumId){
     makeHomeView();
   });
 
+  const homeButton = document.querySelector(".nav-bar-home-btn");
+  homeButton.addEventListener("click", () => {
+    location.reload();
+  })
+  
   const songTitleInput = containerEl.querySelector(".songTitleInput");
   const songDurationInput = containerEl.querySelector(".songDurationInput"); 
   const songRatingInput = containerEl.querySelector(".songRatingInput");
@@ -283,17 +296,8 @@ function makeSongView(song, albumId){
         });
     });
 
-
-
-
-
   }
   
-
-
-
-
-
 
 
 
