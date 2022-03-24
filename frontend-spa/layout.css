@@ -3,6 +3,12 @@ nav>ul{
     flex-direction: row;
     list-style-type: none;
     justify-content: space-around;
+    background-color: #e0455b;
+    height: 2em;
+    color: white;
+    font-size: x-large;
+    align-items: center;
+
 }
 .mainTitle{
     display: flex;
@@ -11,21 +17,72 @@ nav>ul{
 body{
     background-color: #59b187;
 }
-.mainContent{
-    display: flex;
-    justify-content: space-around;
 
-}
 footer{
     display: flex;
     justify-content: space-around;
 }
 *{
     margin: 0px;
+    font-family: 'Reem Kufi', sans-serif;
 }
 .albums-list{
     display: flex;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+}
+.albums-list{
+    width: 70%;
 
+}
+.main-content{
+    display: flex;
+    justify-content: center;
+}
+.album-img{
+    height: 20em;
+}
+.album{
+    padding: 1em;
+}
+.album-artist{
+    text-align: center;
+}
+.album-title{
+    text-align: center;
+}
+.album-display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.album-header__artist{
+    text-align: center;
+}
+.album-header__title{
+    text-align: center;
+}
+.album-header__rating{
+    text-align: center;
+}
+.album-songs-list-header{
+    text-align: center;
+}
+.song-list{
+    text-align: center;
+}
+.song-display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.song-title{
+    text-align: center;
+}
+.song-duration{
+    text-align: center;
+}
+.song-rating{
+    text-align: center;
 }

@@ -18,7 +18,7 @@ public class Populator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Album album1 = new Album("Add New Album", "Artist", "./img/add album.png", "Record");
+        Album album1 = new Album("Add New Album", "Artist", "/src/img/add_album.png", "Record");
         Album album2 = new Album("Nevermind","Nirvana","https://upload.wikimedia.org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg", "DGC Records");
         Album album3 = new Album("Channel Orange","Frank Ocean", "https://preview.redd.it/0twt7jdw3pu01.png?width=640&crop=smart&auto=webp&s=80099c3f3cd5d940c84f52f432e9ea4873a36f1d", "Def Jam Records");
         Album album4 = new Album("Forever Young", "Alphaville", "https://i.ebayimg.com/images/g/IZkAAOSwBRlcd7-q/s-l400.jpg", "Warner Atlantic Rhino");
@@ -29,7 +29,7 @@ public class Populator implements CommandLineRunner {
         Album album9 = new Album("Deadpan Love", "Cautious Clay", "https://lastfm.freetls.fastly.net/i/u/500x500/e22aae3dae8cd6585e3cd55b3eab9e52.jpg", "Independent");
         Album album10 = new Album("Dear Catastrophe Waitress", "Belle & Sebastian", "https://belleandsebastian.com/wp-content/uploads/2017/05/DearCatastropheWaistress.jpg", "Rough Trade Records");
         Album album11 = new Album("IV", "Led Zeppelin", "https://m.media-amazon.com/images/I/51h-cJeHf0L.jpg", "Atlantic Records");
-        Album album12 = new Album("Heaven Tonight", "Cheap Trick", "http://placekitten.com/200/300","Epic Records");
+        Album album12 = new Album("Rooty", "Basement Jaxx", "https://upload.wikimedia.org/wikipedia/en/c/ce/Basement_Jaxx_-_Rooty_-_CD_album_cover.jpg","Astralwerks");
 
         albumRepo.save(album1);
         albumRepo.save(album2);
@@ -45,7 +45,7 @@ public class Populator implements CommandLineRunner {
         albumRepo.save(album12);
 
 
-        Song song1 = new Song("Surrender",album12,4.16);
+        Song song1 = new Song("Romeo",album12,3.36);
         Song song2 = new Song("Smells Like Teen Spirit",album2,5.01);
         Song song3 = new Song("Sweet Life",album3,4.22);
         Song song4 = new Song("Big in Japan",album4,4.40);

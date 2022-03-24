@@ -4,12 +4,13 @@ return `
     <div class="banner">
    <img src="src/img/banner.png">
    </div>
+   <hr class ="topLine">
    <nav> 
     <ul>
-        <li>Albums</li>
-        <li>Songs</li>
-        <li>About</li>
+        <li>HOME</li>
+        <li>ABOUT</li>
     </ul>    
     </nav>
+    <hr class="bottomLine">
 </header> `
 }
