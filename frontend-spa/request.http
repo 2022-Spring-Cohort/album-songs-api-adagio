@@ -1,5 +1,8 @@
 ###
-GET http://localhost:8080/albums/1
+GET http://localhost:8080/albums/2
 
 ###
 GET http://localhost:8080/songs
+
+###
+POST http://localhost:8080/albums/

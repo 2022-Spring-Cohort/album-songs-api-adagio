@@ -5,7 +5,6 @@ import org.wcci.apimastery.resources.Comment;
 
 import javax.persistence.*;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -14,7 +13,7 @@ public class Song {
     @GeneratedValue
     private long id;
     private String title;
-    private double duration;
+    private int duration;
     private double averageSongRating;
 
     @ElementCollection
@@ -25,7 +24,7 @@ public class Song {
 
 
 
-    public Song(String title, Album album, double duration, Comment...comments) {
+    public Song(String title, Album album, int duration, Comment...comments) {
         this.title = title;
         this.album = album;
         this.duration = duration;
@@ -42,7 +41,7 @@ public class Song {
         return title;
     }
 
-    public double getDuration() {
+    public int getDuration() {
         return duration;
     }
 

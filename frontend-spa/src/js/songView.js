@@ -5,7 +5,7 @@ export default function songView(song) {
         <section class="song-display">
             <header class="song-header">
                 <h3 class="song-title">Song: ${song.title}</h3>
-                <h3 class="song-duration">Duration: ${song.duration}</h3>
+                <h3 class="song-duration">Duration: ${Math.floor(song.duration/60)}:${(song.duration%60<10)?'0'+ song.duration%60:song.duration%60} </h3>
                 <h3 class="song-rating">Rating: ${song.averageSongRating.toFixed(3)}</h3>    
             </header>
           <br>
@@ -15,7 +15,7 @@ export default function songView(song) {
             <div class="NewSongCommentDiv">
             <input type="text" placeholder="Song Comments" class="songCommentInput" \>
             <input type="text" placeholder="Song Comment Author" class="songAuthorInput" \>
-            <input type="text" placeholder="Song Rating" class="songCommentRatingInput" \>
+            <input type="number" min="0" max="10" placeholder="Song Rating" class="songCommentRatingInput" \>
             <button class="addSongComment">Add Comment</button>
             </div>
             <div class="NewSongDiv">
