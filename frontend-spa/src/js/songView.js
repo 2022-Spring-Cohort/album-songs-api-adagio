@@ -9,14 +9,18 @@ export default function songView(song) {
                 <h3 class="song-rating">Rating: ${song.averageSongRating.toFixed(3)}</h3>    
             </header>
           <br>
-            <input type="text" class="update-song-title" placeholder="New Song Title" />
-            <button class="update-song-button">Update Song Title</button>
+          <form action="#" return false">
+            <input type="text" required class="update-song-title" placeholder="New Song Title" />
+            <button type="submit" class="update-song-button">Update Song Title</button>
+            </form>
             <br>
             <div class="NewSongCommentDiv">
-            <input type="text" placeholder="Song Comments" class="songCommentInput" \>
-            <input type="text" placeholder="Song Comment Author" class="songAuthorInput" \>
-            <input type="number" min="0" max="10" placeholder="Song Rating" class="songCommentRatingInput" \>
-            <button class="addSongComment">Add Comment</button>
+            <form action="#" return false">
+            <input type="text" required placeholder="Song Comments" class="songCommentInput" \>
+            <input type="text" required placeholder="Song Comment Author" class="songAuthorInput" \>
+            <input type="number" min="0" max="10" required placeholder="Song Rating" class="songCommentRatingInput" \>
+            <button type="submit" class="addSongComment">Add Comment</button>
+            </form>
             </div>
             <div class="NewSongDiv">
             <br>

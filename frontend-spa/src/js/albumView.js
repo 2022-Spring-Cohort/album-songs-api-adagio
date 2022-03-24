@@ -20,24 +20,26 @@ export default function albumView(album) {
             </section>
             <br>
             <div class="update-album-title-section">
-            <input type="text" class="update-album-title" placeholder="New Album Title" />
-            <button class="update-button">Update Album Title</button>
+            <form action="#" return false">
+            <input type="text" required class="update-album-title" placeholder="New Album Title" />
+            <button type="submit" class="update-button">Update Album Title</button>
+            </form>
            </div>
            <br>
             <div class="NewSongDiv">
-                <input type="text" placeholder="Song Name" class="songTitleInput" \>
-                <input type="number" min="0" max="59" placeholder="Minutes" class="songDurationInputMinutes" \>
-                 <input type="number" min="0" max="59" placeholder="Seconds" class="songDurationInputSeconds" \>
-        
-
-                <button class="addSongButton">Add Song</button>
+            <form action="#" return false">
+                <input type="text" required placeholder="Song Name" class="songTitleInput" \>
+                <input type="number" min="0" max="59" required placeholder="Minutes" class="songDurationInputMinutes" \>
+                 <input type="number" min="0" max="59" required placeholder="Seconds" class="songDurationInputSeconds" \>
+                <button type="submit" class="addSongButton">Add Song</button>
+                </form>
             </div>
                 <br>
             <div class="NewCommentDiv">
             <form action="#" return false">
             <input type="text" required placeholder="Album Comments" class="albumCommentInput" \>
-            <input type="text" placeholder="Album Comment Author" class="albumAuthorInput" \>
-            <input type="number" min="0" max="10" placeholder="Album Rating" class="albumRatingInput" \>
+            <input type="text" required placeholder="Album Comment Author" class="albumAuthorInput" \>
+            <input type="number" min="0" max="10" required placeholder="Album Rating" class="albumRatingInput" \>
             <button type="submit" class="addAlbumComment">Add Comment </button>
             </form>
             </div>
