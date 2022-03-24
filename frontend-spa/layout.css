@@ -89,3 +89,18 @@ footer{
 .albumRatingInput{
     width: 100px;
 }
+.songDurationInputMinutes{
+    width: 100px;
+}
+.songDurationInputSeconds{
+    width: 100px;
+}
+.display-album-rating{
+    text-align: center;
+}
+.display-comments-list{
+    text-align: center;
+}
+.display-comment-author{
+    text-align: center;
+}

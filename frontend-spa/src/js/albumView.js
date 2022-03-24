@@ -31,6 +31,7 @@ export default function albumView(album) {
                 <input type="text" required placeholder="Song Name" class="songTitleInput" \>
                 <input type="number" min="0" max="59" required placeholder="Minutes" class="songDurationInputMinutes" \>
                  <input type="number" min="0" max="59" required placeholder="Seconds" class="songDurationInputSeconds" \>
+                 <input type="url" required placeholder="Link to Video" class="songVidInput" \>
                 <button type="submit" class="addSongButton">Add Song</button>
                 </form>
             </div>
@@ -38,7 +39,7 @@ export default function albumView(album) {
             <div class="NewCommentDiv">
             <form action="#" return false">
             <input type="text" required placeholder="Album Comments" class="albumCommentInput" \>
-            <input type="text" required placeholder="Album Comment Author" class="albumAuthorInput" \>
+            <input type="text" required placeholder="Comment Author" class="albumAuthorInput" \>
             <input type="number" min="0" max="10" required placeholder="Album Rating" class="albumRatingInput" \>
             <button type="submit" class="addAlbumComment">Add Comment </button>
             </form>
@@ -47,7 +48,7 @@ export default function albumView(album) {
             <section class ="album-comments">
             ${
                 album.comments.map(comment => {
-                    return `<h3 class="display-comments-list">${comment.comment}</h3><h3 class="display-album-rating">${comment.rating.toFixed(3)}</h3>`;
+                    return `<h3 class="display-album-rating">Rating: ${comment.rating.toFixed(3)}</h3><h3 class="display-comments-list">Comment: ${comment.comment}</h3><h3 class="display-comment-author">Author: ${comment.author}</h3>`;
                 }).join("")
             }
             

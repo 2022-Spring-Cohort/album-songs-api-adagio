@@ -7,7 +7,7 @@ return `
    <hr class ="topLine">
    <nav> 
     <ul>
-        <li>HOME</li>
+    <li class="nav-bar-home-btn">HOME</li>
         <li>ABOUT</li>
     </ul>    
     </nav>

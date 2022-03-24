@@ -15,6 +15,7 @@ public class Song {
     private String title;
     private int duration;
     private double averageSongRating;
+    private String songUrl;
 
     @ElementCollection
     private List<Comment> comments;
@@ -24,12 +25,13 @@ public class Song {
 
 
 
-    public Song(String title, Album album, int duration, Comment...comments) {
+    public Song(String title, Album album, int duration, String songUrl, Comment...comments) {
         this.title = title;
         this.album = album;
         this.duration = duration;
         this.comments = Arrays.asList(comments);
         this.averageSongRating = 0;
+        this.songUrl = songUrl;
     }
     public Song() {
     }
@@ -72,7 +74,12 @@ public class Song {
     public double getAverageSongRating() {
         return averageSongRating;
     }
+
+    public String getSongUrl() {
+        return songUrl;
+    }
 }
+
 
 
 

@@ -45,17 +45,17 @@ public class Populator implements CommandLineRunner {
         albumRepo.save(album12);
 
 
-        Song song1 = new Song("Romeo",album12,216);
-        Song song2 = new Song("Smells Like Teen Spirit",album2,301);
-        Song song3 = new Song("Sweet Life",album3,242);
-        Song song4 = new Song("Big in Japan",album4,260);
-        Song song5 = new Song("Scars",album5,232);
-        Song song6 = new Song("Heat Waves",album6,238);
-        Song song7 = new Song("Devil In A New Dress",album7,351);
-        Song song8 = new Song("Head Like A Hole",album8,302);
-        Song song9 = new Song("Wildfire",album9,152);
-        Song song10 = new Song("Step Into My Office Baby",album10,252);
-        Song song11 = new Song("Black Dog",album11,295);
+        Song song1 = new Song("Romeo",album12,216, "https://www.youtube.com/embed/iik25wqIuFo");
+        Song song2 = new Song("Smells Like Teen Spirit",album2,301, "https://youtu.be/iik25wqIuFo");
+        Song song3 = new Song("Sweet Life",album3,242, "https://youtu.be/iik25wqIuFo");
+        Song song4 = new Song("Big in Japan",album4,260, "https://youtu.be/iik25wqIuFo");
+        Song song5 = new Song("Scars",album5,232, "https://youtu.be/iik25wqIuFo");
+        Song song6 = new Song("Heat Waves",album6,238, "https://youtu.be/iik25wqIuFo");
+        Song song7 = new Song("Devil In A New Dress",album7,351, "https://youtu.be/iik25wqIuFo");
+        Song song8 = new Song("Head Like A Hole",album8,302, "https://youtu.be/iik25wqIuFo");
+        Song song9 = new Song("Wildfire",album9,152, "https://youtu.be/iik25wqIuFo");
+        Song song10 = new Song("Step Into My Office Baby",album10,252, "https://youtu.be/iik25wqIuFo");
+        Song song11 = new Song("Black Dog",album11,295, "https://youtu.be/iik25wqIuFo");
 
 
         songRepo.save(song1);
