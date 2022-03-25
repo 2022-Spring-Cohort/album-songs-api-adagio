@@ -102,11 +102,11 @@ function makeAlbumView(album) {
   console.log(containerEl);
   const updateButton = containerEl.querySelector(".update-button");
   updateButton.addEventListener("click", () => {
-    let x = update-button.value;
-    if (x == "") {
+   
+    const updateInput = containerEl.querySelector(".update-album-title");
+    if ( updateInput.value == "") {
       return false;
     }
-    const updateInput = containerEl.querySelector(".update-album-title");
     fetch("http://localhost:8080/albums/" + album.id, {
       method: "PATCH",
       body: updateInput.value,
@@ -116,6 +116,10 @@ function makeAlbumView(album) {
         makeHomeViewFromJSON(newAlbums);
       });
   });
+
+
+
+
 
   const deleteButton = containerEl.querySelector(".delete-button");
   deleteButton.addEventListener("click", () => {
@@ -245,11 +249,11 @@ function makeSongView(song, albumId){
   
       const updateSongButton = songDiv.querySelector(".update-song-button");
       updateSongButton.addEventListener("click", () => {
-        let x = update-song-button.value;
-        if (x == "") {
+        
+        const updateInput = songDiv.querySelector(".update-song-title");
+        if (updateInput.value == "") {
           return false;
         }
-        const updateInput = songDiv.querySelector(".update-song-title");
         fetch("http://localhost:8080/albums/songs/" + song.id, {
           method: "PATCH",
           body: updateInput.value,
