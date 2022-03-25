@@ -4,8 +4,9 @@ export default function songView(song) {
     <main class="main-content">
         <section class="song-display">
             <header class="song-header">
-                <h3 class="song-title">Song: ${song.title}</h3>
-               <a href="${song.songUrl}"><button class="link-to-song-video">Listen on Youtube</button></a>
+                <h1 class="song-title">Song: ${song.title}</h1>
+                <br>
+               <a href="${song.songUrl}" target="_blank"><img src="src/img/youtube.png" class="link-to-song-video"></img></a>
   
                 <h3 class="song-duration">Duration: ${Math.floor(song.duration/60)}:${(song.duration%60<10)?'0'+ song.duration%60:song.duration%60} </h3>
                 <h3 class="song-rating">Rating: ${song.averageSongRating.toFixed(3)}</h3>  

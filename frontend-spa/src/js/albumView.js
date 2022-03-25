@@ -22,7 +22,7 @@ export default function albumView(album) {
             <div class="update-album-title-section">
             <form action="#" return false">
             <input type="text" required class="update-album-title" placeholder="New Album Title" />
-            <button type="submit" class="update-button">Update Album Title</button>
+            <button type="submit" class="updateAlbumButton">Update Album Title</button>
             </form>
            </div>
            <br>

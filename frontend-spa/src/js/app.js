@@ -113,9 +113,8 @@ function makeAlbumView(album) {
   })
   // const albumEl = containerEl.querySelectorAll(".album");
   console.log(containerEl);
-  const updateButton = containerEl.querySelector(".update-button");
+  const updateButton = containerEl.querySelector(".updateAlbumButton");
   updateButton.addEventListener("click", () => {
-   
     const updateInput = containerEl.querySelector(".update-album-title");
     if ( updateInput.value == "") {
       return false;
