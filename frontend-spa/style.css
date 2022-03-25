@@ -28,3 +28,14 @@ footer{
     border: 0px;
     margin-top: 1em;
 }
+a:link{
+    list-style-type: none;
+    color: #40403f;
+}
+a:visited{
+    color: #40403f;
+}
+.nav-bar-about-btn:hover, .nav-bar-home-btn:hover, .album-img:hover, .song-list:hover, .back-navigation:hover{
+cursor: pointer;
+transform: scale(1.1);
+}

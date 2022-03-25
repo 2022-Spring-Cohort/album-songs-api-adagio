@@ -8,7 +8,7 @@ return `
    <nav> 
     <ul>
     <li class="nav-bar-home-btn">HOME</li>
-        <li>ABOUT</li>
+        <li class="nav-bar-about-btn">ABOUT</li>
     </ul>    
     </nav>
     <hr class="bottomLine">

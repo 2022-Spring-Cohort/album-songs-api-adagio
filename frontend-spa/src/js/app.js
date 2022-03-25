@@ -4,6 +4,35 @@ import footer from "./footer.js";
 import albumView from "./albumView.js";
 import songView from "./songView.js";
 import addAlbumView from "./addAlbumView.js";
+import aboutView from "./aboutView.js";
+
+
+
+function makeAboutView() {
+  containerEl.innerHTML = header();
+  containerEl.innerHTML += aboutView();
+  containerEl.innerHTML += footer();
+
+  const backButton = containerEl.querySelector(".back-navigation");
+  backButton.addEventListener("click", () => {
+    makeHomeView();
+  });
+
+  const homeButton = document.querySelector(".nav-bar-home-btn");
+  homeButton.addEventListener("click", () => {
+    location.reload();
+  })
+
+}
+
+function bindAboutView() {
+const aboutEl = containerEl.querySelector(".nav-bar-about-btn");
+
+
+aboutEl.addEventListener("click", () => {
+  makeAboutView();
+})
+}
 
 
 const containerEl = document.querySelector(".container");
@@ -22,6 +51,7 @@ function makeHomeViewFromJSON(albums) {
   containerEl.innerHTML = header();
   containerEl.innerHTML += home(albums);
   containerEl.innerHTML += footer();
+  bindAboutView();
 
   const albumEl = containerEl.querySelectorAll(".album");
 
@@ -45,6 +75,7 @@ function makeAddAlbumView(album) {
   containerEl.innerHTML = header();
   containerEl.innerHTML += addAlbumView(album);
   containerEl.innerHTML += footer();
+  bindAboutView();
 
   const backButton = containerEl.querySelector(".back-navigation");
   backButton.addEventListener("click", () => {
@@ -97,6 +128,7 @@ function makeAlbumView(album) {
   containerEl.innerHTML = header();
   containerEl.innerHTML += albumView(album);
   containerEl.innerHTML += footer();
+  bindAboutView();
 
   const backButton = containerEl.querySelector(".back-navigation");
   backButton.addEventListener("click", () => {
@@ -109,7 +141,7 @@ function makeAlbumView(album) {
   })
 
   album.songs.forEach(song => {
-    bindSongView(song, album.id);
+    bindSongView(song, album);
   })
   // const albumEl = containerEl.querySelectorAll(".album");
   console.log(containerEl);
@@ -124,8 +156,8 @@ function makeAlbumView(album) {
       body: updateInput.value,
     })
       .then((res) => res.json())
-      .then((newAlbums) => {
-        makeHomeViewFromJSON(newAlbums);
+      .then((newAlbum) => {
+        makeAlbumView(newAlbum);
       });
   });
 
@@ -211,28 +243,29 @@ function makeAlbumView(album) {
 
 }
 
-function bindSongView(song, albumId) {
+function bindSongView(song, album) {
 //   // fetch("http://localhost:8080/albums/" + albumId)
 //   //     .then((res) => res.json())
 //   //     .then((album) => {
  console.log(song);
   const viewSong = document.querySelector("#song"+ song.id);
   viewSong.addEventListener("click", () => {
-    makeSongView(song, albumId);
+    makeSongView(song, album);
     });
 
 
 }
 
-function makeSongView(song, albumId){
+function makeSongView(song, album){
   console.log(song);
   containerEl.innerHTML = header();
   containerEl.innerHTML += songView(song);
   containerEl.innerHTML += footer();
+  bindAboutView();
 
-  const backButton = containerEl.querySelector(".back-navigation");
+  const backButton = containerEl.querySelector(".album-navigation");
   backButton.addEventListener("click", () => {
-    makeHomeView();
+    makeAlbumView(album);
   });
 
   const homeButton = document.querySelector(".nav-bar-home-btn");
@@ -273,9 +306,9 @@ function makeSongView(song, albumId){
           .then((res) => res.json())
           .then((albums) => {
             console.log(albums)
-          albums.forEach(album => {
-            if( album.id == albumId) {
-              makeAlbumView(album)
+          albums.forEach(newAlbum => {
+            if( newAlbum.id == album.id) {
+              makeAlbumView(newAlbum)
             }
           })
           });

@@ -6,7 +6,7 @@ export default function albumView(album) {
             <header class="album-header">
                 <h2 class="album-header__artist">${album.artist}</h2>
                 <h3 class="album-header__title">${album.title}</h3>
-                <img class="album-img" src=${album.imgUrl}>
+                <img class="album-view-img" src=${album.imgUrl}>
                 <h3 class="album-header__rating">Rating: ${album.averageAlbumRating.toFixed(3)}</h3>
             </header>
             <section class="album-song-list">
