@@ -21,6 +21,7 @@ body{
 footer{
     display: flex;
     justify-content: space-around;
+    
 }
 *{
     margin: 0px;
@@ -103,4 +104,10 @@ footer{
 }
 .display-comment-author{
     text-align: center;
+}
+.link-to-song-video{
+height: 10em;
+}
+.songCommentRatingInput{
+    width: 100px;
 }
