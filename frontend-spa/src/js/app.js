@@ -341,7 +341,7 @@ function makeSongView(song, album){
         .then((res) => res.json())
         .then((song) => {
           console.log(song);
-          makeSongView(song);
+          makeSongView(song, album);
         });
     });
 
