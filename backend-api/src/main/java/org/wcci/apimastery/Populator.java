@@ -18,7 +18,7 @@ public class Populator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Album album1 = new Album("Add New Album", "Artist", "/src/img/add_album.png", "Record");
+        Album album1 = new Album("Click Picture Below", "Add New Album", "/src/img/add_album.png", "Record");
         Album album2 = new Album("Nevermind","Nirvana","https://upload.wikimedia.org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg", "DGC Records");
         Album album3 = new Album("Channel Orange","Frank Ocean", "https://preview.redd.it/0twt7jdw3pu01.png?width=640&crop=smart&auto=webp&s=80099c3f3cd5d940c84f52f432e9ea4873a36f1d", "Def Jam Records");
         Album album4 = new Album("Forever Young", "Alphaville", "https://i.ebayimg.com/images/g/IZkAAOSwBRlcd7-q/s-l400.jpg", "Warner Atlantic Rhino");

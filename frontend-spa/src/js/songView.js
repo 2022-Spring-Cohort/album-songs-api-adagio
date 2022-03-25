@@ -6,9 +6,9 @@ export default function songView(song) {
             <header class="song-header">
                 <h1 class="song-title">Song: ${song.title}</h1>
                 <br>
-               <a href="${song.songUrl}" target="_blank"><img src="src/img/youtube.png" class="link-to-song-video"></img></a>
+               <a href="${song.songUrl}" class="link-to-song-video" target="_blank"><img src="src/img/youtube.png" ></a>
   
-                <h3 class="song-duration">Duration: ${Math.floor(song.duration/60)}:${(song.duration%60<10)?'0'+ song.duration%60:song.duration%60} </h3>
+                <h3 class="song-duration">Duration: ${Math.floor(song.duration / 60)}:${(song.duration % 60 < 10) ? '0' + song.duration % 60 : song.duration % 60} </h3>
                 <h3 class="song-rating">Rating: ${song.averageSongRating.toFixed(3)}</h3>  
 
             </header>
@@ -31,17 +31,19 @@ export default function songView(song) {
           <button class="delete-song">Delete song</button>
             </div>
             <br>
-            <a class="back-navigation">Back to Album Library</a>
-        </section>
         
-        <section class ="song-comments">
-        ${ 
-            song.comments.map(comment => { 
-                return `<h3 class="display-comments-list">${comment.comment}</h3> <h3 class="display-comment-rating">${comment.rating.toFixed(3)}</h3>`;
-            }).join("")
-        }
+            <section class ="song-comments">
+        ${song.comments.map(comment => {
+    return `<h3 class="display-comment-rating">Rating: ${comment.rating.toFixed(3)}</h3> <h3 class="display-comments-list">Comment: ${comment.comment}</h3> <h3 class="display-comment-author">Author: ${comment.author}</h3>`;
+  }).join("")
+    }
+        
+            </section>
+        <br>
+            <a class="album-navigation">Back to Album</a>
+       
+        
         
         </section>
-
     </main>`;
 }
