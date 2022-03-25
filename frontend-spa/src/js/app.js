@@ -50,12 +50,25 @@ function makeAddAlbumView(album) {
   backButton.addEventListener("click", () => {
     makeHomeView();
   });
+
+  const homeButton = document.querySelector(".nav-bar-home-btn");
+  homeButton.addEventListener("click", () => {
+    location.reload();
+  })
+
+
   const newAlbumTitleInput = containerEl.querySelector(".new-album-title");
   const newAlbumArtistInput = containerEl.querySelector(".new-album-artist");
   const newAlbumImgInput = containerEl.querySelector(".new-album-url");
 
   const addNewAlbumBtn = containerEl.querySelector(".add-album-button");
   addNewAlbumBtn.addEventListener("click", () => {
+    let x = newAlbumTitleInput.value;
+    let y = newAlbumArtistInput.value;
+    let z = newAlbumImgInput.value;
+  if (x == "" || y == "" || z == "") {
+    return false;
+  }
     const newAlbumJson = {
       title: newAlbumTitleInput.value,
       artist: newAlbumArtistInput.value,
@@ -102,12 +115,10 @@ function makeAlbumView(album) {
   console.log(containerEl);
   const updateButton = containerEl.querySelector(".updateAlbumButton");
   updateButton.addEventListener("click", () => {
-    console.log(album);
-    let x = updateButton.value;
-    if (x == "") {
+    const updateInput = containerEl.querySelector(".update-album-title");
+    if ( updateInput.value == "") {
       return false;
     }
-    const updateInput = containerEl.querySelector(".update-album-title");
     fetch("http://localhost:8080/albums/" + album.id, {
       method: "PATCH",
       body: updateInput.value,
@@ -117,6 +128,10 @@ function makeAlbumView(album) {
         makeHomeViewFromJSON(newAlbums);
       });
   });
+
+
+
+
 
   const deleteButton = containerEl.querySelector(".delete-button");
   deleteButton.addEventListener("click", () => {
@@ -246,11 +261,11 @@ function makeSongView(song, albumId){
   
       const updateSongButton = songDiv.querySelector(".update-song-button");
       updateSongButton.addEventListener("click", () => {
-        let x = update-song-button.value;
-        if (x == "") {
+        
+        const updateInput = songDiv.querySelector(".update-song-title");
+        if (updateInput.value == "") {
           return false;
         }
-        const updateInput = songDiv.querySelector(".update-song-title");
         fetch("http://localhost:8080/albums/songs/" + song.id, {
           method: "PATCH",
           body: updateInput.value,
