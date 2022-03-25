@@ -45,17 +45,17 @@ public class Populator implements CommandLineRunner {
         albumRepo.save(album12);
 
 
-        Song song1 = new Song("Romeo",album12,216, "https://www.youtube.com/embed/iik25wqIuFo");
-        Song song2 = new Song("Smells Like Teen Spirit",album2,301, "https://youtu.be/iik25wqIuFo");
-        Song song3 = new Song("Sweet Life",album3,242, "https://youtu.be/iik25wqIuFo");
-        Song song4 = new Song("Big in Japan",album4,260, "https://youtu.be/iik25wqIuFo");
-        Song song5 = new Song("Scars",album5,232, "https://youtu.be/iik25wqIuFo");
-        Song song6 = new Song("Heat Waves",album6,238, "https://youtu.be/iik25wqIuFo");
-        Song song7 = new Song("Devil In A New Dress",album7,351, "https://youtu.be/iik25wqIuFo");
-        Song song8 = new Song("Head Like A Hole",album8,302, "https://youtu.be/iik25wqIuFo");
-        Song song9 = new Song("Wildfire",album9,152, "https://youtu.be/iik25wqIuFo");
-        Song song10 = new Song("Step Into My Office Baby",album10,252, "https://youtu.be/iik25wqIuFo");
-        Song song11 = new Song("Black Dog",album11,295, "https://youtu.be/iik25wqIuFo");
+        Song song1 = new Song("Romeo",album12,216, "https://www.youtube.com/watch?v=x2wUbgAAydY");
+        Song song2 = new Song("Smells Like Teen Spirit",album2,301, "https://www.youtube.com/watch?v=hTWKbfoikeg");
+        Song song3 = new Song("Sweet Life",album3,242, "https://www.youtube.com/watch?v=y14F2RQW7h4");
+        Song song4 = new Song("Big in Japan",album4,260, "https://www.youtube.com/watch?v=tl6u2NASUzU");
+        Song song5 = new Song("Scars",album5,232, "https://www.youtube.com/watch?v=gZ3JUAAPwBg");
+        Song song6 = new Song("Heat Waves",album6,238, "https://www.youtube.com/watch?v=mRD0-GxqHVo");
+        Song song7 = new Song("Devil In A New Dress",album7,351, "https://www.youtube.com/watch?v=yW5DjagYfok");
+        Song song8 = new Song("Head Like A Hole",album8,302, "https://www.youtube.com/watch?v=ao-Sahfy7Hg");
+        Song song9 = new Song("Wildfire",album9,152, "https://www.youtube.com/watch?v=Y3gTM-AB2Go");
+        Song song10 = new Song("Step Into My Office Baby",album10,252, "https://www.youtube.com/watch?v=xhHsrWXX1I8");
+        Song song11 = new Song("Black Dog",album11,295, "https://www.youtube.com/watch?v=6tlSx0jkuLM");
 
 
         songRepo.save(song1);

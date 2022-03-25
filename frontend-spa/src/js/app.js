@@ -100,9 +100,10 @@ function makeAlbumView(album) {
   })
   // const albumEl = containerEl.querySelectorAll(".album");
   console.log(containerEl);
-  const updateButton = containerEl.querySelector(".update-button");
+  const updateButton = containerEl.querySelector(".updateAlbumButton");
   updateButton.addEventListener("click", () => {
-    let x = update-button.value;
+    console.log(album);
+    let x = updateButton.value;
     if (x == "") {
       return false;
     }
